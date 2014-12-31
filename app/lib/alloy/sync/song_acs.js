@@ -14,11 +14,11 @@ module.exports.sync = function(method, model, options) {
 			// Use the idAttribute property in case the model ID is set to something else besides 'id'
 			if (payload[model.idAttribute]) {
 				// If we have an ID, fetch only one document
-				service.song_songRead(payload[model.idAttribute], null, cb)
+				service.song_songRead(payload[model.idAttribute], null, cb);
 			}
 			else {
 				// if not, fetch all documents
-				service.song_songReadAll(cb)
+				service.song_songReadAll(cb);
 			}
 			break;
 
@@ -26,7 +26,7 @@ module.exports.sync = function(method, model, options) {
 		// to a initialize model if the IDs are not set.
 		case 'create':
 			if (payload.name && payload.artist && payload.album) {
-				service.song_songCreate({name: payload.name, artist: payload.artist, album: payload.artist}, cb)
+				service.song_songCreate({name: payload.name, artist: payload.artist, album: payload.artist}, cb);
 			}
 			else {
 				error = 'ERROR: Cannot create model without an name, artist or album!';
@@ -36,7 +36,12 @@ module.exports.sync = function(method, model, options) {
 		// This case is called by the Model.destroy method to delete the model from storage.
 		case 'delete':
 			if (payload[model.idAttribute]) {
-				service.song_songDelete(payload[model.idAttribute], null, cb)
+				service.song_songDelete(payload[model.idAttribute],
+					{ 
+						_id    : payload[model.idAttribute],
+						_rev   : payload._rev
+					},
+					cb);
 			}
 			else {
 				error = 'ERROR: Model does not have an ID!';
@@ -47,7 +52,17 @@ module.exports.sync = function(method, model, options) {
 		// to update a model if they have IDs set.
 		case 'update':
 			if (payload[model.idAttribute]) {
-				service.song_songUpdate(payload[model.idAttribute], {name: payload.name, artist: payload.artist, album: payload.album}, cb)
+				service.song_songUpdate(
+					payload[model.idAttribute],
+					{ 
+						_id    : payload[model.idAttribute],
+						_rev   : payload._rev,
+						name   : payload.name,
+						artist : payload.artist,
+						album  : payload.album
+					},
+					cb
+				);
 			}
 			else {
 				error = 'ERROR: Cannot update model without an ID!';

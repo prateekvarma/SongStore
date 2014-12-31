@@ -27,8 +27,8 @@ module.exports.sync = function(method, model, options) {
 		// This case is called by the Model.save and Collection.create methods
 		// to a initialize model if the IDs are not set.
 		case 'create':
-			if (payload.title && payload.author) {
-				http_request('POST', BASE_URL, {title: payload.title, author: payload.author}, callback);
+			if (payload.name && payload.artist && payload.album) {
+				http_request('POST', BASE_URL, {name: payload.name, artist: payload.artist, album: payload.album}, callback);
 			}
 			else {
 				error = 'ERROR: Cannot create model without an author or title!';
@@ -49,7 +49,7 @@ module.exports.sync = function(method, model, options) {
 		// to update a model if they have IDs set.
 		case 'update':
 			if (payload[model.idAttribute]) {
-				http_request('PUT', BASE_URL + payload[model.idAttribute], {title: payload.title, author: payload.author}, callback);
+				http_request('PUT', BASE_URL + payload[model.idAttribute], {name: payload.name, artist: payload.artist, album:payload.album}, callback);
 			}
 			else {
 				error = 'ERROR: Model does not have an ID!';

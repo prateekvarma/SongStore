@@ -9,6 +9,6 @@
 		<TextField id="artist" width="200dp"/>
 		<Label>Album:</Label>		
 		<TextField id="album" width="200dp"/>
-		<Button onClick="saveBook">Save</Button>
+		<Button onClick="saveSong">Save</Button>
 	</Window>
 </Alloy>

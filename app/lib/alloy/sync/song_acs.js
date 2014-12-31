@@ -25,7 +25,7 @@ module.exports.sync = function(method, model, options) {
 		// This case is called by the Model.save and Collection.create methods
 		// to a initialize model if the IDs are not set.
 		case 'create':
-			if (payload.title && payload.author) {
+			if (payload.name && payload.artist && payload.album) {
 				service.song_songCreate({name: payload.name, artist: payload.artist, album: payload.artist}, cb)
 			}
 			else {

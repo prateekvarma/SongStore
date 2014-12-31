@@ -37,22 +37,22 @@ if(url && url.replace(/^\s+|\s+$/g, "")) {
 
 var route = "/song";
 
-exports.book_bookCreate = function (data, cb) {
+exports.song_songCreate = function (data, cb) {
    InvokeService(route, "POST", data, cb);
 };
 
-exports.book_bookReadAll = function (data, cb) {
+exports.song_songReadAll = function (data, cb) {
    InvokeService(route, "GET", data, cb);
 };
 // Added id param to handle route parameters to the following three entry points
-exports.book_bookRead = function (id, data, cb) {
+exports.song_songRead = function (id, data, cb) {
    InvokeService(route + "/" + id, "GET", data, cb);
 };
 
-exports.book_bookUpdate = function (id, data, cb) {
+exports.song_songUpdate = function (id, data, cb) {
    InvokeService(route + "/" + id, "PUT", data, cb);
 };
 
-exports.book_bookDelete = function (id, data, cb) {
+exports.song_songDelete = function (id, data, cb) {
    InvokeService(route + "/" + id, "DELETE", data, cb);
 };

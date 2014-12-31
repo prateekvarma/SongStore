@@ -4,6 +4,10 @@ var model = args;
 $.artist.value = song.artist || 'No artist';
 $.name.value = song.name || 'No name';
 $.album.value = song.album || 'No album';
+if (song._id && song._rev){
+	$._id.value = song._id;
+	$._rev.value = song._rev;
+}
 
 var dialogs = require('alloy/dialogs');
 
@@ -13,7 +17,15 @@ function closeMe(e) {
 
 function updateSong(e) {
 	dialogs.confirm({message: 'Are you sure you want to make changes?', callback: function() {
-		model.save({name: $.name.value, artist: $.artist.value, album: $.album.value});
+		model.save(
+			{
+				name: $.name.value,
+				artist: $.artist.value,
+				album: $.album.value,
+				_id: $._id.value,
+				_rev: $._rev.value,
+			}
+		);
 	}});
 }
 

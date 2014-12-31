@@ -9,6 +9,8 @@
 		<TextField id="artist"/>
 		<Label>Album:</Label>		
 		<TextField id="album"/>
+		<TextField id="_id" visible="false"/>
+		<TextField id="_rev" visible="false"/>
 		<Button onClick="updateSong">Save Edits</Button>
 		<Button onClick="deleteSong">Remove</Button>	
 	</Window>

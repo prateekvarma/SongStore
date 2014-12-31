@@ -36,6 +36,7 @@ function deleteSong(e) {
 				_id: $._id.value,
 				_rev: $._rev.value,
 			},
+			processData : true,
 			wait: true, // Waits for a response from the server
 			success: function(mod, response, options) { // Custom callback after a successful call.
 				$.detail.close(); // Close the window

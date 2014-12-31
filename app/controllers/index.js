@@ -28,7 +28,7 @@ function loadExtras (e) {
 				icon : 'ic_menu_add.png',
 				showAsAction : Ti.Android.SHOW_AS_ACTION_ALWAYS
 			}); 
-			addItem.addEventListener("click", addBook);
+			addItem.addEventListener("click", addSong);
 
 			var refreshItem = menu.add({
 				title : "Refresh",

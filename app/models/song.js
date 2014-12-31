@@ -1,10 +1,10 @@
 exports.definition = {
 	config: {
 		adapter: {
-			type: "book_acs", //< use either book_rest or book_acs
-			collection_name: "book",
+			type: "song_acs", //< use either book_rest or book_acs
+			collection_name: "song",
 			// Endpoint URL to access the service for the REST sync adapter
-			base_url: 'BASE_URL/book/'
+			base_url: '10.0.0.37:51615'
 		}
 	},		
 	extendModel: function(Model) {
@@ -14,4 +14,4 @@ exports.definition = {
 		});
 		return Model;
 	}
-}
+};

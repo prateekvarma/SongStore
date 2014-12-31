@@ -1,14 +1,14 @@
-var library = Alloy.Collections.book;
+var library = Alloy.Collections.song;
 library.fetch();
 $.index.open();
 
-function showBook(e) {
-	var book = library.at(e.index);
-	var detail = Alloy.createController('detail', book).getView();
+function showSong(e) {
+	var song = library.at(e.index);
+	var detail = Alloy.createController('detail', song).getView();
 	detail.open();
 }
 
-function addBook(e) {
+function addSong(e) {
 	var add = Alloy.createController('add').getView();
 	add.open();
 }

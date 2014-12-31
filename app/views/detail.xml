@@ -1,13 +1,15 @@
 <Alloy>
-	<Window title="Book Details" onAndroidbackbutton="closeMe">
+	<Window title="Song Details" onAndroidbackbutton="closeMe">
 		<RightNavButton platform="ios">
 			<Button onClick="closeMe">Close</Button>
 		</RightNavButton>
-		<Label>Title:</Label>
-		<TextField id="title"/>
-		<Label>Author:</Label>		
-		<TextField id="author"/>
-		<Button onClick="updateBook">Save Edits</Button>
-		<Button onClick="deleteBook">Remove</Button>	
+		<Label>Name:</Label>
+		<TextField id="name"/>
+		<Label>Artist:</Label>		
+		<TextField id="artist"/>
+		<Label>Album:</Label>		
+		<TextField id="album"/>
+		<Button onClick="updateSong">Save Edits</Button>
+		<Button onClick="deleteSong">Remove</Button>	
 	</Window>
 </Alloy>

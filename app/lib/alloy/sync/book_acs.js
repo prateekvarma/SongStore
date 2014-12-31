@@ -1,5 +1,5 @@
 // Require in the bindings file to access the BookService using JavaScript API calls instead of REST requests
-var service = require('ti.cloud.BookService');
+var service = require('ti.cloud.SongService');
 
 // Override the Backbone.sync method with the following
 module.exports.sync = function(method, model, options) {
@@ -14,11 +14,11 @@ module.exports.sync = function(method, model, options) {
 			// Use the idAttribute property in case the model ID is set to something else besides 'id'
 			if (payload[model.idAttribute]) {
 				// If we have an ID, fetch only one document
-				service.book_bookRead(payload[model.idAttribute], null, cb)
+				service.song_songRead(payload[model.idAttribute], null, cb)
 			}
 			else {
 				// if not, fetch all documents
-				service.book_bookReadAll(cb)
+				service.song_songReadAll(cb)
 			}
 			break;
 
@@ -26,17 +26,17 @@ module.exports.sync = function(method, model, options) {
 		// to a initialize model if the IDs are not set.
 		case 'create':
 			if (payload.title && payload.author) {
-				service.book_bookCreate({title: payload.title, author: payload.author}, cb)
+				service.song_songCreate({name: payload.name, artist: payload.artist, album: payload.artist}, cb)
 			}
 			else {
-				error = 'ERROR: Cannot create model without an author or title!';
+				error = 'ERROR: Cannot create model without an name, artist or album!';
 			}
 			break;
 
 		// This case is called by the Model.destroy method to delete the model from storage.
 		case 'delete':
 			if (payload[model.idAttribute]) {
-				service.book_bookDelete(payload[model.idAttribute], null, cb)
+				service.song_songDelete(payload[model.idAttribute], null, cb)
 			}
 			else {
 				error = 'ERROR: Model does not have an ID!';
@@ -47,7 +47,7 @@ module.exports.sync = function(method, model, options) {
 		// to update a model if they have IDs set.
 		case 'update':
 			if (payload[model.idAttribute]) {
-				service.book_bookUpdate(payload[model.idAttribute], {title: payload.title, author: payload.author}, cb)
+				service.song_songUpdate(payload[model.idAttribute], {name: payload.name, artist: payload.artist, album: payload.album}, cb)
 			}
 			else {
 				error = 'ERROR: Cannot update model without an ID!';

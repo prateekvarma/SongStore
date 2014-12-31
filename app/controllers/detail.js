@@ -1,8 +1,9 @@
 var args = arguments[0] || {};
-var book = args.toJSON();
+var song = args.toJSON();
 var model = args;
-$.author.value = book.author || 'No author';
-$.title.value = book.title || 'No title';
+$.artist.value = song.artist || 'No artist';
+$.name.value = song.name || 'No name';
+$.album.value = song.album || 'No album';
 
 var dialogs = require('alloy/dialogs');
 
@@ -10,14 +11,14 @@ function closeMe(e) {
 	$.detail.close();
 }
 
-function updateBook(e) {
+function updateSong(e) {
 	dialogs.confirm({message: 'Are you sure you want to make changes?', callback: function() {
-		model.save({title: $.title.value, author: $.author.value});
+		model.save({name: $.name.value, artist: $.artist.value, album: $.album.value});
 	}});
 }
 
-function deleteBook(e) {
-	dialogs.confirm({message: 'Are you sure you want to delete this book?', callback: function() {
+function deleteSong(e) {
+	dialogs.confirm({message: 'Are you sure you want to delete this song?', callback: function() {
 		model.destroy({
 			wait: true, // Waits for a response from the server
 			success: function(mod, response, options) { // Custom callback after a successful call.

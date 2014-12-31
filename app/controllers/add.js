@@ -15,7 +15,7 @@ function saveSong(e) {
 			{
 				wait: true, // Waits for a response from the server
 				success: function(model, response, options) {// Custom call after a successufl call.
-					var message = 'Song name '  + response.name + ' by ' + response.artist + 'from the album' + response.album  + '!'
+					var message = 'Song name '  + response.name + ' by ' + response.artist + ' from the album ' + response.album  + '!';
 					alert(message);
 					$.name.value = $.artist.value = $.album.value = ''; // Clear the fields
 				},

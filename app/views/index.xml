@@ -1,6 +1,6 @@
 <Alloy>
 	<Collection src="song"/>
-	<Window title="MyLibrary" exitOnClose="true" onOpen="loadExtras">
+	<Window title="SongList" exitOnClose="true" onOpen="loadExtras">
 		<RightNavButton platform="ios">
 			<Button onClick="addSong">Add</Button>
 		</RightNavButton>

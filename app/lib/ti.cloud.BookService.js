@@ -22,12 +22,12 @@ function InvokeService(path, method, data, cb) {
    // Added error callback and timeout
    xhr.onerror = function(e) {
        Ti.API.error(e.error);
-   }
+   };
    xhr.timeout = 5000;
    xhr.send(data);
 };
 
-var url = Ti.App.Properties.getString("acs-service-baseurl-BookService");
+var url = Ti.App.Properties.getString("acs-service-baseurl-SongService");
 
 if(url && url.replace(/^\s+|\s+$/g, "")) {
    exports.URL = url.replace(/^\s+|\s+$/g, "");
@@ -35,22 +35,24 @@ if(url && url.replace(/^\s+|\s+$/g, "")) {
    exports.URL = "http://localhost:8080";
 }
 
+var route = "/song";
+
 exports.book_bookCreate = function (data, cb) {
-   InvokeService("/book", "POST", data, cb);
+   InvokeService(route, "POST", data, cb);
 };
 
 exports.book_bookReadAll = function (data, cb) {
-   InvokeService("/book", "GET", data, cb);
+   InvokeService(route, "GET", data, cb);
 };
 // Added id param to handle route parameters to the following three entry points
 exports.book_bookRead = function (id, data, cb) {
-   InvokeService("/book/" + id, "GET", data, cb);
+   InvokeService(route + "/" + id, "GET", data, cb);
 };
 
 exports.book_bookUpdate = function (id, data, cb) {
-   InvokeService("/book/" + id, "PUT", data, cb);
+   InvokeService(route + "/" + id, "PUT", data, cb);
 };
 
 exports.book_bookDelete = function (id, data, cb) {
-   InvokeService("/book/" + id, "DELETE", data, cb);
+   InvokeService(route + "/" + id, "DELETE", data, cb);
 };

@@ -54,5 +54,10 @@ exports.song_songUpdate = function (id, data, cb) {
 };
 
 exports.song_songDelete = function (id, data, cb) {
+	console.log("DELETE data: {");
+	for (key in data){
+		console.log("	" + key + " : " + data[key]);
+	}
+	console.log("}");
    InvokeService(route + "/" + id, "DELETE", data, cb);
 };

@@ -26,7 +26,7 @@ module.exports.sync = function(method, model, options) {
 		// to a initialize model if the IDs are not set.
 		case 'create':
 			if (payload.name && payload.artist && payload.album) {
-				service.song_songCreate({name: payload.name, artist: payload.artist, album: payload.artist}, cb);
+				service.song_songCreate({name: payload.name, artist: payload.artist, album: payload.album}, cb);
 			}
 			else {
 				error = 'ERROR: Cannot create model without an name, artist or album!';

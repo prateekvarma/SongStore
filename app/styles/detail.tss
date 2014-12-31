@@ -1,8 +1,18 @@
 "#_id" : {
 	height : 0,
-	width : 0
+	width : 0,
+	paddingLeft: 0,
+	paddingRight: 0,
+	borderRadius: 0,
+	editable: false,
+	touchEnabled: false
 },
 "#_rev" : {
 	height : 0,
-	width : 0
+	width : 0,
+	paddingLeft: 0,
+	paddingRight: 0,
+	borderRadius: 0,
+	editable: false,
+	touchEnabled: false
 },

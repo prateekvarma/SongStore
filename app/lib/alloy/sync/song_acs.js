@@ -35,16 +35,17 @@ module.exports.sync = function(method, model, options) {
 
 		// This case is called by the Model.destroy method to delete the model from storage.
 		case 'delete':
-			if (payload[model.idAttribute]) {
+			if (payload[model.idAttribute] && payload._rev) {
 				service.song_songDelete(payload[model.idAttribute],
 					{ 
 						_id    : payload[model.idAttribute],
 						_rev   : payload._rev
 					},
 					cb);
-			}
-			else {
+			} else  if (!payload[model.idAttribute]) {
 				error = 'ERROR: Model does not have an ID!';
+			} else if (!payload._rev) {
+				error = 'ERROR: Model does not have a revision!';
 			}
 			break;
 

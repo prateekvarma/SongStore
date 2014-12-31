@@ -32,6 +32,10 @@ function updateSong(e) {
 function deleteSong(e) {
 	dialogs.confirm({message: 'Are you sure you want to delete this song?', callback: function() {
 		model.destroy({
+			data: {
+				_id: $._id.value,
+				_rev: $._rev.value,
+			},
 			wait: true, // Waits for a response from the server
 			success: function(mod, response, options) { // Custom callback after a successful call.
 				$.detail.close(); // Close the window

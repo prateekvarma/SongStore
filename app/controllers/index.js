@@ -26,14 +26,14 @@ function loadExtras (e) {
 			var addItem = menu.add({ 
 				title : "Add", 
 				icon : 'ic_menu_add.png',
-				showAsAction : Ti.Android.SHOW_AS_ACTION_ALWAYS
+				showAsAction : Ti.Android.SHOW_AS_ACTION_WITH_TEXT
 			}); 
 			addItem.addEventListener("click", addSong);
 
 			var refreshItem = menu.add({
 				title : "Refresh",
 				icon : 'ic_menu_refresh.png',
-				showAsAction : Ti.Android.SHOW_AS_ACTION_ALWAYS
+				showAsAction : Ti.Android.SHOW_AS_ACTION_WITH_TEXT
 			}); 
 			refreshItem.addEventListener("click", refreshTable);
 		};

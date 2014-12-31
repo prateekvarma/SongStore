@@ -5,7 +5,7 @@
 			<Button onClick="addSong">Add</Button>
 		</RightNavButton>
 		<TableView dataCollection="song" top="10" onDragEnd="refreshTable">
-			<TableViewRow title="{name}" color="black" onClick="showSong"/>
+			<TableViewRow title="{name} by {artist}" color="black" onClick="showSong"/>
 		</TableView>
 	</Window>
 </Alloy>
